@@ -32,10 +32,14 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
--- Set PowerShell 7 as default shell for terminal
-vim.opt.shell = "pwsh"
-vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
-vim.opt.shellxquote = ""
+--if windows, powershell else bash
+if vim.fn.has('win32') == 1 then
+    vim.opt.shell = "pwsh"
+    vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+    vim.opt.shellxquote = ""
+else
+    vim.opt.shell = "bash"
+end
 
 -- auto open nvim-tree when opening nvim
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
