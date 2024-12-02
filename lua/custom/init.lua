@@ -1,0 +1,20 @@
+vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='🟡', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointRejected', {text='⭕', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapLogPoint', {text='📝', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='▶️', texthl='', linehl='', numhl=''})
+
+-- Debug keymaps (using <leader>d as prefix for debug)
+vim.keymap.set('n', '<leader>dt', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end)
+vim.keymap.set('n', '<leader>ds', function() require('dap').step_over() end)
+vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end)
+vim.keymap.set('n', '<leader>do', function() require('dap').step_out() end)
+vim.keymap.set('n', '<leader>db', function() 
+    require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
+end)
+vim.keymap.set('n', '<leader>dr', function() require('dap').repl.open() end)
+vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end)
+
+-- Toggle DAP UI
+vim.keymap.set('n', '<leader>du', function() require('dapui').toggle() end)
