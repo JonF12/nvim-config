@@ -3,12 +3,10 @@ vim.g.mapleader = " "
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-
 if not vim.uv.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
-
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
@@ -21,8 +19,9 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-
-  { import = "plugins" },
+  {
+    import = "plugins",
+  },
 }, lazy_config)
 
 -- load theme
@@ -33,12 +32,12 @@ require "options"
 require "nvchad.autocmds"
 
 --if windows, powershell else bash
-if vim.fn.has('win32') == 1 then
-    vim.opt.shell = "pwsh"
-    vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
-    vim.opt.shellxquote = ""
+if vim.fn.has "win32" == 1 then
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+  vim.opt.shellxquote = ""
 else
-    vim.opt.shell = "bash"
+  vim.opt.shell = "bash"
 end
 
 -- auto open nvim-tree when opening nvim

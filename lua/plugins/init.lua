@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    lazy = false,
     opts = require "configs.conform",
   },
   {
@@ -11,35 +11,19 @@ return {
     end,
   },
   {
-    "mfussenegger/nvim-dap",
-    lazy = false,
-    priority = 1000,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    lazy = false,
-    priority = 999,
-  },
-  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        -- LSP
-        "typescript-language-server",    -- TS/JS
-        "json-lsp",                     -- JSON
-        "yaml-language-server",         -- YAML
-        "omnisharp",       -- C#
-        "denopls",          --deno
-        -- Formatters
-        "prettier",                     -- JS/TS/JSON/YAML
-        "csharpier",                    -- C#
-        
-        -- Linters
-        "eslint_d",                     -- JS/TS
-        
-        -- DAP (Debugger)
-        "js-debug-adapter",             -- JS/TS debugging
-        "netcoredbg",                   -- C# debugging
+        "typescript-language-server",
+        "json-lsp",
+        "yaml-language-server",
+        "omnisharp",
+        "denopls",
+        "templ",
+        "prettier",
+        "csharpier",
+        "eslint_d",
+        "netcoredbg",
       },
     },
   },
@@ -47,13 +31,10 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults 
         "vim",
         "lua",
         "go",
         "vimdoc",
-        
-        -- web dev
         "html",
         "css",
         "javascript",
@@ -61,8 +42,7 @@ return {
         "tsx",
         "json",
         "yaml",
-        
-        -- c#
+        "templ",
         "c_sharp",
       },
     },

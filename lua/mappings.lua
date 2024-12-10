@@ -1,15 +1,21 @@
 require "nvchad.mappings"
 
 -- add yours here
+local close_all_but_this = function()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+  for _, bufnr in ipairs(vim.t.bufs) do
+    if bufnr ~= current_bufnr then
+      require("nvchad.tabufline").close_buffer(bufnr)
+    end
+  end
+end
 
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-
-map('n', 'gg', 'gg0', { desc = "Go to first line first col", noremap = true })
-map('n', 'G', 'G$', { desc = "go to last line last col", noremap = true })
-
+map("n", "gg", "gg0", { desc = "Go to first line first col", noremap = true })
+map("n", "G", "G$", { desc = "go to last line last col", noremap = true })
 
 -- arrow key movement
 map("n", "<Left>", "h", { desc = "Move left" })
@@ -28,23 +34,6 @@ map("n", "<C-Left>", "<C-w>h", { desc = "Window left" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Window down" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Window up" })
 map("n", "<C-Right>", "<C-w>l", { desc = "Window right" })
+map("n", "<leader>X", close_all_but_this, { desc = "Close All all bufs but this" })
 
--- DAP
-map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
-map("n", "<leader>dc", function() require("dap").continue() end, { desc = "Start/Continue Debugging" })
-map("n", "<leader>di", function() require("dap").step_into() end, { desc = "Step Into" })
-map("n", "<leader>do", function() require("dap").step_over() end, { desc = "Step Over" })
-map("n", "<leader>dO", function() require("dap").step_out() end, { desc = "Step Out" })
-map("n", "<leader>du", function() require("dapui").toggle() end, { desc = "Toggle Debug UI" })
-
--- Telescope live grep mapping
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
-
--- optionally disable hjkl
--- map("n", "h", "<nop>")
--- map("n", "j", "<nop>")
--- map("n", "k", "<nop>")
--- map("n", "l", "<nop>")
-
-
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
