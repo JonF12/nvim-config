@@ -39,4 +39,5 @@ function Clear-ScreenBuffer {
 }
 
 Set-Alias -Name cls -Value Clear-ScreenBuffer
-Set-Alias -Name cdnvim -Value 'cd $HOME/AppData/Local/nvim'
+function Go-ToNvim { Set-Location (Join-Path $HOME 'AppData\Local\nvim') }
+Set-Alias -Name cdnvim -Value Go-ToNvim
