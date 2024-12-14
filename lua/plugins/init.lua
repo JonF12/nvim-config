@@ -42,6 +42,13 @@ return {
     end,
   },
   {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    lazy = true,
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {

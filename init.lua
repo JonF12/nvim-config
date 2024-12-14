@@ -30,7 +30,6 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
-
 --if windows, powershell else bash
 if vim.fn.has "win32" == 1 then
   vim.opt.shell = "pwsh"
