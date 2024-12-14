@@ -1,17 +1,7 @@
 require "nvchad.mappings"
 
--- add yours here
-local close_all_but_this = function()
-  local current_bufnr = vim.api.nvim_get_current_buf()
-  for _, bufnr in ipairs(vim.t.bufs) do
-    if bufnr ~= current_bufnr then
-      require("nvchad.tabufline").close_buffer(bufnr)
-    end
-  end
-end
-
 local map = vim.keymap.set
-
+local tabs = require "mappings.tabs"
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "gg", "gg0", { desc = "Go to first line first col", noremap = true })
@@ -34,8 +24,14 @@ map("n", "<C-Left>", "<C-w>h", { desc = "Window left" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Window down" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Window up" })
 map("n", "<C-Right>", "<C-w>l", { desc = "Window right" })
-map("n", "<leader>X", close_all_but_this, { desc = "Close All all bufs but this" })
-map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
+
+--tab functionality
+map("n", "<leader>X", tabs.close_all_but_this, { desc = "Close All all bufs but this" })
+map("n", "<leader>Z", tabs.close_buffers_to_left, { desc = "Close All all bufs to the left" })
+map("n", "<leader>C", tabs.close_buffers_to_right, { desc = "Close All all bufs to the right" })
+
+--telescope live grep (forgot if this is needed)
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep", noremap = true, silent = true })
 
 --debugger
 -- map("n", "<leader>bb", "<cmd>DapToggleBreakpoint<CR>", { desc = "Toggle Breakpoint" })
