@@ -2,7 +2,11 @@
 require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
+
 vim.filetype.add { extension = { templ = "templ" } }
+
+--todo : move each to its own folder for simpler organization
+--
 -- lsps with default config
 local servers = {
   "html",
@@ -59,7 +63,7 @@ lspconfig.html.setup {
   capabilities = nvlsp.capabilities,
   filetypes = { "html" },
 }
--- Emmet
+-- Emmet (wtf does this even do?)
 lspconfig.emmet_ls.setup {
   capabilities = nvlsp.capabilities,
   filetypes = { "html", "css" },
@@ -73,6 +77,7 @@ lspconfig.emmet_ls.setup {
 }
 -- Custom server configurations
 -- TypeScript/JavaScript with additional settings
+-- todo: test/fix
 lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -145,13 +150,6 @@ lspconfig.gopls.setup {
   },
   filetypes = { "go", "templ" },
   on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.go",
-      callback = function() end,
-    })
-    local opts = { buffer = bufnr, silent = true }
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    require("mappings.go_templ_mappings").go_format_on_save(client, bufnr)
   end,
 }
