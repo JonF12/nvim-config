@@ -23,7 +23,30 @@ M.ui = {
 
   statusline = {
     theme = "minimal",
-    separator_style = "round",
+
+    overriden_modules = function()
+      local st_modules = require("nvchad.statusline.default")
+      st_modules[4] = function()
+        local git = vim.b.gitsigns_status_dict
+        if not git then
+          return ""
+        end
+
+        local icons = {
+          branch = " ",
+          added = " ",
+          changed = " ",
+          removed = " ",
+        }
+
+        local added = git.added and git.added ~= 0 and string.format("%s%d ", icons.added, git.added) or ""
+        local changed = git.changed and git.changed ~= 0 and string.format("%s%d ", icons.changed, git.changed) or ""
+        local removed = git.removed and git.removed ~= 0 and string.format("%s%d ", icons.removed, git.removed) or ""
+
+        return string.format("%s%s %s%s%s", icons.branch, git.head, added, changed, removed)
+      end
+      return st_modules
+    end,
   },
   tabufline = {
     enabled = true,
