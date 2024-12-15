@@ -1,14 +1,14 @@
-local dap_config = require "custom.dapconfig"
+local dap_config = require("custom.dapconfig")
 return {
   {
     "stevearc/conform.nvim",
     lazy = false,
-    opts = require "configs.conform",
+    opts = require("configs.conform"),
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "configs.lspconfig"
+      require("configs.lspconfig")
     end,
   },
   {
@@ -32,6 +32,12 @@ return {
     config = function()
       require("dapui").setup()
     end,
+  },
+  {
+    "nicholasmata/nvim-dap-cs",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
   },
   {
     "leoluz/nvim-dap-go",
