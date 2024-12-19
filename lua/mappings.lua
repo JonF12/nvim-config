@@ -31,6 +31,9 @@ map("n", "<leader>X", tabs.close_all_but_this, { desc = "Close All all bufs but 
 map("n", "<leader>Z", tabs.close_buffers_to_left, { desc = "Close All all bufs to the left" })
 map("n", "<leader>C", tabs.close_buffers_to_right, { desc = "Close All all bufs to the right" })
 
+--nvim tree
+map("n", "<C-B>", "<CMD> NvimTreeCollapse <cr>")
+
 --telescope live grep (forgot if this is needed)
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep", noremap = true, silent = true })
 
