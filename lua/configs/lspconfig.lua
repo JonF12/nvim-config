@@ -47,7 +47,7 @@ lspconfig.tailwindcss.setup({
       templ = "html",
     },
   },
-  root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts", "postcss.config.js", "postcss.config.ts", "package.json", "node_modules", ".git"),
+  root_dir = lspconfig.util.root_pattern("tailwind.config.js", "postcss.config.js", "package.json", "node_modules", ".git"),
 })
 
 lspconfig.html.setup({
