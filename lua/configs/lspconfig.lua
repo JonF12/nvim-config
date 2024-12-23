@@ -125,10 +125,6 @@ lspconfig.gopls.setup({
       experimentalPostfixCompletions = true,
       completionDocumentation = true,
       completeUnimported = true,
-      analyses = {
-        unusedvariables = true,
-        fieldalignment = true,
-      },
       importShortcut = "Both",
       diagnosticsDelay = "500ms",
       matcher = "fuzzy",
@@ -145,13 +141,6 @@ lspconfig.gopls.setup({
   on_attach = function(client, bufnr)
     require("mappings.go_templ_mappings").go_format_on_save(client, bufnr)
   end,
-})
-
-lspconfig.sourcekit.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  filetypes = { "swift" },
-  cmd = { "sourcekit-lsp" },
 })
 
 lspconfig.omnisharp.setup({

@@ -87,7 +87,6 @@ return {
         "tsx",
         "json",
         "yaml",
-        "swift",
         "templ",
         "c_sharp",
       },
