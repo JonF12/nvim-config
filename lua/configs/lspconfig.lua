@@ -69,7 +69,6 @@ lspconfig.emmet_ls.setup({
 })
 -- Custom server configurations
 -- TypeScript/JavaScript with additional settings
--- todo: test/fix
 lspconfig.ts_ls.setup({
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
