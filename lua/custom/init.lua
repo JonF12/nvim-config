@@ -6,7 +6,7 @@ if vim.fn.has("win32") == 1 then
 else
   vim.opt.shell = "bash"
 end
-vim.opt.pumheight = 10
+vim.opt.pumheight = 20
 -- auto open nvim-tree when opening nvim
 vim.schedule(function()
   require("mappings")

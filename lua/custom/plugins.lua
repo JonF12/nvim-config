@@ -1,21 +1,20 @@
 local cmp = require("cmp")
-local ELLIPSIS_CHAR = "…"
-local MAX_LABEL_WIDTH = 50
-local MIN_LABEL_WIDTH = 50
 local lspkind = require("lspkind")
-local COMPLETION_KIND = require("custom.const.lsp_kind").Completion
+
+local ELLIPSIS_CHAR = "…"
+local MAX_LABEL_WIDTH = 40
+local MIN_LABEL_WIDTH = 40
 local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = {
       completion = {
         keyword_length = 2,
-        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         col_offset = -3,
         side_padding = 0,
       },
       performance = {
-        max_view_entries = 30,
+        max_view_entries = 50,
       },
       sorting = {
         priority_weight = 2,
@@ -32,22 +31,15 @@ local plugins = {
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({
-          mode = "symbol",
+          mode = "symbol_text",
           maxwidth = {
-            menu = 50,
-            abbr = 45,
+            menu = 40,
+            abbr = 33,
           },
-          ellipsis_char = "...",
-          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+          show_labelDetails = false, -- show labelDetails in menu. Disabled by default
+
           -- before = function(entry, vim_item)
-          --   -- local label = vim_item.abbr
-          --   -- local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-          --   -- if truncated_label ~= label then
-          --   --   vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
-          --   -- elseif string.len(label) < MIN_LABEL_WIDTH then
-          --   --   local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
-          --   --   vim_item.abbr = label .. padding
-          --   -- end
+
           --   local kind = vim_item.kind
           --   local kind_hl_group = ("CmpItemKind%s"):format(kind)
           --
@@ -55,6 +47,22 @@ local plugins = {
           --   vim_item.kind = (" %s "):format(COMPLETION_KIND[kind].icon)
           --   return vim_item
           -- end,
+          before = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = (strings[1] or "")
+            kind.menu = (strings[2] or "")
+
+            local label = kind.abbr
+            local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+            if truncated_label ~= label then
+              kind.abbr = truncated_label
+            elseif string.len(label) < MIN_LABEL_WIDTH then
+              local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
+              kind.abbr = label .. padding
+            end
+            return kind
+          end,
         }),
       },
       window = {
