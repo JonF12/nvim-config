@@ -43,6 +43,12 @@ return {
     "onsails/lspkind.nvim",
   },
   {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+    },
+  },
+  {
     "leoluz/nvim-dap-go",
     lazy = false,
     dependencies = "mfussenegger/nvim-dap",

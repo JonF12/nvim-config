@@ -75,4 +75,7 @@ local plugins = {
   },
 }
 
+require("ufo").setup()
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 return plugins
