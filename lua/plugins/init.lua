@@ -40,6 +40,9 @@ return {
     },
   },
   {
+    "onsails/lspkind.nvim",
+  },
+  {
     "leoluz/nvim-dap-go",
     lazy = false,
     dependencies = "mfussenegger/nvim-dap",

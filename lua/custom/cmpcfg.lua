@@ -1,10 +1,9 @@
-local cmp = require "cmp"
-
+local cmp = require("cmp")
 local M = {}
-
 M.cmp = {
-  preselect = cmp.Preselectmode.None,
+  preselect = cmp.PreselectMode.None,
   completion = {
+    keyword_length = 2,
     completeopt = "menu,menuone,noselect",
   },
   sorting = {
@@ -20,5 +19,4 @@ M.cmp = {
     },
   },
 }
-
 return M

@@ -4,15 +4,15 @@
 
 ---@type ChadrcConfig
 local M = {}
-
 M.base46 = {
   theme = "github_dark",
   transparency = true,
 }
 M.ui = {
   cmp = {
-    icons_left = false, -- only for non-atom styles!
-    lspkind_text = true,
+    icons_left = true, -- only for non-atom styles!
+    lspkind_text = false,
+    icons = false,
     style = "default", -- default/flat_light/flat_dark/atom/atom_colored
     format_colors = {
       tailwind = false, -- will work for css lsp too
