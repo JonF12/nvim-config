@@ -21,6 +21,7 @@ map("v", "<Right>", "l", { desc = "Move right" })
 map("n", "<C-Left>", "<C-w>h", { desc = "Window left" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Window down" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Window up" })
+map("n", "<C-Right>", "<C-w>l", { desc = "Window right" })
 --tab functionality
 map("n", "<leader>X", tabs.close_all_but_this, { desc = "Close All all bufs but this" })
 map("n", "<leader>Z", tabs.close_buffers_to_left, { desc = "Close All all bufs to the left" })
