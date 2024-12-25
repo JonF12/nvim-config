@@ -5,6 +5,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "gg", "gg0", { desc = "Go to first line first col", noremap = true })
 map("n", "G", "G$", { desc = "go to last line last col", noremap = true })
+map("v", "gg", "gg0", { desc = "Go to first line first col", noremap = true })
+map("v", "G", "G$", { desc = "go to last line last col", noremap = true })
 -- arrow key movement
 map("n", "<Left>", "h", { desc = "Move left" })
 map("n", "<Down>", "j", { desc = "Move down" })
