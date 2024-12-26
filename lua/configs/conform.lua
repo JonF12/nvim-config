@@ -10,7 +10,6 @@ local options = {
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
     json = { "prettier" },
-    cs = { "csharpier" },
   },
   format_on_save = {
     timeout_ms = 2000,
@@ -23,6 +22,14 @@ local options = {
         return { "--config-path", config_path }
       end,
     },
+  },
+  notify_on_error = true,
+  format_disabled_dirs = {
+    "node_modules",
+    ".git",
+    ".vs",
+    "bin",
+    "obj",
   },
 }
 
