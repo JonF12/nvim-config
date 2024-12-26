@@ -5,7 +5,7 @@
 ---@type ChadrcConfig
 local M = {}
 M.base46 = {
-  theme = "github_dark",
+  theme = "vscode_dark",
   transparency = true,
 }
 M.ui = {
