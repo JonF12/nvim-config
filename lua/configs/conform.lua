@@ -22,6 +22,12 @@ local options = {
         return { "--config-path", config_path }
       end,
     },
+    prettier = {
+      env = {
+        LANG = "C", -- Force ASCII encoding
+        LC_ALL = "C",
+      },
+    },
   },
   notify_on_error = true,
   format_disabled_dirs = {

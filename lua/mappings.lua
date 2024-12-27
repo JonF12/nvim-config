@@ -26,5 +26,6 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Window right" })
 map("n", "<leader>X", tabs.close_all_but_this, { desc = "Close All all bufs but this" })
 map("n", "<leader>Z", tabs.close_buffers_to_left, { desc = "Close All all bufs to the left" })
 map("n", "<leader>C", tabs.close_buffers_to_right, { desc = "Close All all bufs to the right" })
+
 --nvim tree
 map("n", "<C-B>", "<CMD> NvimTreeCollapse <cr>")
