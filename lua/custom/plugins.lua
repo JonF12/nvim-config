@@ -1,7 +1,6 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
-local ELLIPSIS_CHAR = "…"
 local MAX_LABEL_WIDTH = 40
 local MIN_LABEL_WIDTH = 40
 local plugins = {

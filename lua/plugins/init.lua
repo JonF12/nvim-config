@@ -43,6 +43,13 @@ return {
     "onsails/lspkind.nvim",
   },
   {
+    "kylechui/nvim-surround",
+    lazy = false,
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
+  {
     "kevinhwang91/nvim-ufo",
     dependencies = {
       "kevinhwang91/promise-async",

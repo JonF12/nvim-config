@@ -10,6 +10,8 @@ local options = {
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
     json = { "prettier" },
+    cs = { "csharpier" },
+    c = { "clang_format" },
   },
   format_on_save = {
     timeout_ms = 2000,
@@ -24,8 +26,13 @@ local options = {
     },
     prettier = {
       env = {
-        LANG = "C", -- Force ASCII encoding
+        LANG = "C",
         LC_ALL = "C",
+      },
+    },
+    clang_format = {
+      prepend_args = {
+        "--style={IndentWidth: 2, IndentCaseLabels: true, UseTab: Never, IncludeBlocks: Preserve, SortIncludes: true}",
       },
     },
   },
