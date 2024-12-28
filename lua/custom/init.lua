@@ -11,16 +11,12 @@ vim.opt.pumheight = 20
 vim.schedule(function()
   require("mappings")
 end)
---fix windows leaving nvim broken on powershell 7
+--use line endings dependant on os, windows settings
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_create_autocmd("VimLeavePre", {
     pattern = "*",
     command = "set guicursor=a:ver25",
   })
-end
-
---use line endings dependant on os
-if vim.fn.has("win32") == 1 then
   vim.opt.fsync = false
   vim.opt.fileformat = "dos" -- Windows line endings (CRLF)
   vim.opt.fileformats = "dos" -- Prefer Windows format

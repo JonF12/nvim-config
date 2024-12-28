@@ -1,0 +1,14 @@
+IndentWidth: 2
+IndentCaseLabels: true
+BreakBeforeBraces: Attach
+AllowShortIfStatementsOnASingleLine: Always
+BinPackArguments: false
+ColumnLimit: 140
+UseTab: Never
+IncludeBlocks: Preserve
+SortIncludes: true
+AlignAfterOpenBracket: Align
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: All
+AllowShortLambdasOnASingleLine: All
+AlignOperands: true

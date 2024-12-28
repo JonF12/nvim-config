@@ -32,7 +32,7 @@ local options = {
     },
     clang_format = {
       prepend_args = {
-        "--style={IndentWidth: 2, IndentCaseLabels: true, UseTab: Never, IncludeBlocks: Preserve, SortIncludes: true}",
+        "--style=file:" .. vim.fn.stdpath("config") .. "/.clang-format",
       },
     },
   },

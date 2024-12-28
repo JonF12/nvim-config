@@ -12,3 +12,11 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     require("nvim-tree.api").tree.open()
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "r", "o", "c" })
+    vim.opt_local.formatoptions:remove("t")
+  end,
+})
