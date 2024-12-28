@@ -21,6 +21,7 @@ end
 
 --use line endings dependant on os
 if vim.fn.has("win32") == 1 then
+  vim.opt.fsync = false
   vim.opt.fileformat = "dos" -- Windows line endings (CRLF)
   vim.opt.fileformats = "dos" -- Prefer Windows format
   vim.g.terminal_scrollback_buffer_size = 10000 -- Reduce buffer size
