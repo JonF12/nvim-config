@@ -13,10 +13,18 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "c",
+-- Add this event handler
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("UFO_GROUP", { clear = true }),
   callback = function()
-    vim.opt_local.formatoptions:remove({ "r", "o", "c" })
-    vim.opt_local.formatoptions:remove("t")
+    vim.cmd("silent! loadview")
+  end,
+})
+
+-- C/C++ use line comments instead of block comments
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.bo.commentstring = "// %s"
   end,
 })

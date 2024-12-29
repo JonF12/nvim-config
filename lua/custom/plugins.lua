@@ -35,17 +35,7 @@ local plugins = {
             menu = 40,
             abbr = 33,
           },
-          show_labelDetails = false, -- show labelDetails in menu. Disabled by default
-
-          -- before = function(entry, vim_item)
-
-          --   local kind = vim_item.kind
-          --   local kind_hl_group = ("CmpItemKind%s"):format(kind)
-          --
-          --   vim_item.kind_hl_group = ("%sIcon"):format(kind_hl_group)
-          --   vim_item.kind = (" %s "):format(COMPLETION_KIND[kind].icon)
-          --   return vim_item
-          -- end,
+          show_labelDetails = false,
           before = function(entry, vim_item)
             local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
             local strings = vim.split(kind.kind, "%s", { trimempty = true })
@@ -74,7 +64,9 @@ local plugins = {
   },
 }
 
-require("ufo").setup()
+require("ufo").setup({
+  open_fold_hl_timeout = 150,
+})
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 return plugins

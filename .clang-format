@@ -8,7 +8,8 @@ UseTab: Never
 IncludeBlocks: Preserve
 SortIncludes: true
 AlignAfterOpenBracket: Align
-AllowShortBlocksOnASingleLine: Always
-AllowShortFunctionsOnASingleLine: All
-AllowShortLambdasOnASingleLine: All
+AllowShortBlocksOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
 AlignOperands: true
+KeepEmptyLinesAtTheStartOfBlocks: true	
