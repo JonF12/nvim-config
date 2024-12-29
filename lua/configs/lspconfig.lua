@@ -47,7 +47,7 @@ lspconfig.tailwindcss.setup({
       templ = "html",
     },
   },
-  root_dir = lspconfig.util.root_pattern("tailwind.config.js", "postcss.config.js", "package.json", "node_modules", ".git"),
+  root_dir = lspconfig.util.root_pattern("tailwind.config.js", "postcss.config.js"),
 })
 
 lspconfig.html.setup({
@@ -55,7 +55,6 @@ lspconfig.html.setup({
   capabilities = nvlsp.capabilities,
   filetypes = { "html" },
 })
--- Emmet (wtf does this even do?)
 lspconfig.emmet_ls.setup({
   capabilities = nvlsp.capabilities,
   filetypes = { "html", "css" },
@@ -113,76 +112,6 @@ lspconfig.denols.setup({
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
--- Configure gopls with auto-imports
-lspconfig.gopls.setup({
-  settings = {
-    gopls = {
-      staticcheck = true,
-      gofumpt = true,
-      usePlaceholders = true,
-      deepCompletion = true,
-      experimentalPostfixCompletions = true,
-      completionDocumentation = true,
-      completeUnimported = true,
-      importShortcut = "Both",
-      diagnosticsDelay = "500ms",
-      matcher = "fuzzy",
-      symbolMatcher = "fuzzy",
-      symbolStyle = "dynamic",
-      templateExtensions = { "templ", "gotmpl" },
-      directoryFilters = {
-        "-node_modules",
-        "-dist",
-      },
-    },
-  },
-  filetypes = { "go", "templ" },
-  on_attach = function(client, bufnr)
-    require("mappings.go_templ_mappings").go_format_on_save(client, bufnr)
-  end,
-})
-
-lspconfig.omnisharp.setup({
-  cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()), "--settings", vim.fn.stdpath("config") .. "/omnisharp.json" },
-  on_attach = function(client, bufnr)
-    nvlsp.on_attach(client, bufnr)
-    vim.bo[bufnr].tabstop = 4
-    vim.bo[bufnr].shiftwidth = 4
-    vim.bo[bufnr].expandtab = true
-    vim.bo[bufnr].softtabstop = 4
-  end,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-  handlers = {
-    ["textDocument/definition"] = require("omnisharp_extended").handler,
-  },
-  root_dir = lspconfig.util.root_pattern("*.sln", "*.csproj"),
-  enable_roslyn_analyzers = false,
-  analyze_open_documents_only = true,
-  formatting_options = {
-    UseTabs = false, -- Use spaces
-    TabSize = 4,
-    IndentationSize = 4,
-    MaxLineLength = 140,
-  },
-  organize_imports_on_format = true,
-  enable_import_completion = true,
-  enable_cache = true,
-  filetypes = { "cs", "csproj", "sln" },
-})
-
-lspconfig.clangd.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--clang-tidy",
-    "--header-insertion=iwyu",
-    "--completion-style=detailed",
-    "--function-arg-placeholders",
-  },
-  filetypes = { "c", "cpp" },
-  root_dir = lspconfig.util.root_pattern(".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git"),
-  single_file_support = true,
-})
+require("lua.configs.languages.c")
+require("lua.configs.languages.csharp")
+require("lua.configs.languages.go")
