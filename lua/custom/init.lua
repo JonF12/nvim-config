@@ -20,8 +20,8 @@ if vim.fn.has("win32") == 1 then
   vim.opt.fsync = false
   vim.opt.fileformat = "dos" -- Windows line endings (CRLF)
   vim.opt.fileformats = "dos" -- Prefer Windows format
-  vim.g.terminal_scrollback_buffer_size = 10000 -- Reduce buffer size
-  vim.g.terminal_performance_mode = true
+  -- vim.g.terminal_scrollback_buffer_size = 10000 -- Reduce buffer size
+  -- vim.g.terminal_performance_mode = true
   vim.g.powershell_no_async = 0
   vim.g.powershell_no_progress = 1
 else
