@@ -112,6 +112,6 @@ lspconfig.denols.setup({
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-require("lua.configs.languages.c")
-require("lua.configs.languages.csharp")
-require("lua.configs.languages.go")
+require("configs.languages.c")
+require("configs.languages.csharp")
+require("configs.languages.go")
