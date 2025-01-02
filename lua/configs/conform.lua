@@ -12,6 +12,7 @@ local options = {
     json = { "prettier" },
     cs = { "csharpier" },
     c = { "clang_format" },
+    python = { "ruff" },
   },
   format_on_save = {
     timeout_ms = 2000,

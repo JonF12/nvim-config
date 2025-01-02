@@ -4,7 +4,6 @@ local lspconfig = require("lspconfig")
 local nvlsp = require("nvchad.configs.lspconfig")
 
 vim.filetype.add({ extension = { templ = "templ" } })
-
 --todo : move each to its own folder for simpler organization
 --
 -- lsps with default config
@@ -110,6 +109,17 @@ lspconfig.yamlls.setup({
 lspconfig.denols.setup({
   on_attach = nvlsp.on_attach,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+lspconfig.pylsp.setup({
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  pylsp = {
+    plugins = {
+      ruff = { enabled = true },
+    },
+  },
 })
 
 require("configs.languages.c")

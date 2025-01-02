@@ -1,3 +1,8 @@
+vim.diagnostic.config({
+  float = {
+    wrap = true,
+  },
+})
 --if windows, powershell else bash
 if vim.fn.has("win32") == 1 then
   vim.opt.shell = "pwsh"

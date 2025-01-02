@@ -34,6 +34,12 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-dap-python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+  },
+  {
     "nicholasmata/nvim-dap-cs",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -78,6 +84,7 @@ return {
         "json-lsp",
         "yaml-language-server",
         "omnisharp",
+        "python-lsp-server",
         "denopls",
         "delve",
         "templ",
@@ -105,6 +112,7 @@ return {
         "yaml",
         "templ",
         "c_sharp",
+        "python",
       },
     },
   },
