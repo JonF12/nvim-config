@@ -111,16 +111,49 @@ lspconfig.denols.setup({
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
-lspconfig.pylsp.setup({
+lspconfig.pyright.setup({
+  root_dir = lspconfig.util.root_pattern("pyproject.toml"),
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
   pylsp = {
+    python = {
+      venvPath = vim.fn.getcwd() .. "/.venv",
+      pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = "basic",
+        diagnosticMode = "workspace",
+      },
+    },
     plugins = {
       ruff = { enabled = true },
+      mypy = {
+        enabled = true,
+        live_mode = true,
+      },
+      black = { enabled = true },
+      jedi = {
+        enabled = true,
+        extra_paths = {},
+        environment = vim.fn.getcwd() .. "/.venv/bin/python",
+      },
     },
   },
 })
+
+-- lspconfig.pyright.setup({
+--   settings = {
+--     python = {
+--       analysis = {
+--         autoSearchPaths = true,
+--         useLibraryCodeForTypes = true,
+--         diagnosticMode = "workspace",
+--       },
+--     },
+--   },
+-- })
 
 require("configs.languages.c")
 require("configs.languages.csharp")
