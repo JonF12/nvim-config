@@ -33,3 +33,6 @@ else
   vim.opt.fileformat = "unix" -- Unix line endings (LF)
   vim.opt.fileformats = "unix" -- Prefer Unix format
 end
+
+vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_git_timeout = 2000

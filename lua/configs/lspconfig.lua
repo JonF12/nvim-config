@@ -143,19 +143,6 @@ lspconfig.pyright.setup({
   },
 })
 
-<<<<<<< HEAD
--- lspconfig.pyright.setup({
---   settings = {
---     python = {
---       analysis = {
---         autoSearchPaths = true,
---         useLibraryCodeForTypes = true,
---         diagnosticMode = "workspace",
---       },
---     },
---   },
--- })
-=======
 lspconfig.omnisharp.setup({
   cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()), "--settings", vim.fn.stdpath("config") .. "/omnisharp.json" },
   on_attach = function(client, bufnr)
@@ -184,7 +171,6 @@ lspconfig.omnisharp.setup({
   enable_cache = true,
   filetypes = { "cs", "csproj", "sln" },
 })
->>>>>>> 3af915f (stuff)
 
 require("configs.languages.c")
 require("configs.languages.csharp")
