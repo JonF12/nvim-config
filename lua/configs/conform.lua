@@ -19,12 +19,6 @@ local options = {
     lsp_fallback = true,
   },
   formatters = {
-    csharpier = {
-      args = function()
-        local config_path = vim.fn.stdpath("config") .. "/.csharpierrc.json"
-        return { "--config-path", config_path }
-      end,
-    },
     prettier = {
       env = {
         LANG = "C",

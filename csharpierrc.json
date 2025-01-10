@@ -1,0 +1,9 @@
+{
+  "printWidth": 180,
+  "useTabs": false,
+  "tabWidth": 4,
+  "endOfLine": "crlf",
+  "indentSize": 4,
+  "preprocessorSymbolSets": [],
+  "enableDebugLogs": false
+}
