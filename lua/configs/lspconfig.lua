@@ -169,6 +169,7 @@ lspconfig.omnisharp.setup({
   organize_imports_on_format = true,
   enable_import_completion = true,
   enable_cache = true,
+  enable_package_auto_restore = true,
   filetypes = { "cs", "csproj", "sln" },
 })
 

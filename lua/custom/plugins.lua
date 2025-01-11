@@ -65,7 +65,12 @@ local plugins = {
 }
 
 require("ufo").setup({
-  open_fold_hl_timeout = 150,
+  provider_selector = function(bufnr, filetype, buftype)
+    if filetype == "yaml" then
+      return "indent" -- Single provider for yaml
+    end
+    return { "lsp", "indent" } -- Main and fallback for others
+  end,
 })
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
