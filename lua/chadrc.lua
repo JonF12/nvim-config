@@ -4,9 +4,12 @@
 
 ---@type ChadrcConfig
 local M = {}
+
+local transparency = (vim.fn.has("win32") ~= 1)
+
 M.base46 = {
   theme = "doomchad",
-  transparency = true,
+  transparency = transparency,
 }
 M.ui = {
   cmp = {

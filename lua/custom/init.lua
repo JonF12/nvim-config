@@ -74,5 +74,6 @@ vim.api.nvim_set_hl(0, "@module.builtin", { link = "Normal" })
 --c sharp specific
 vim.api.nvim_set_hl(0, "@property.c_sharp", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@constructor.c_sharp", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@constant.builtin.c_sharp", { link = "Keyword" })
 -- vim.api.nvim_set_hl(0, "@function.method.call.c_sharp", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@function.method.c_sharp", { link = "Normal" })
