@@ -36,3 +36,30 @@ end
 
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_git_timeout = 2000
+
+require("nvim-treesitter.configs").setup({
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+})
+vim.api.nvim_set_hl(0, "@attribute", { link = "Include" })
+vim.api.nvim_set_hl(0, "@attribute.builtin", { link = "Include" })
+vim.api.nvim_set_hl(0, "@lsp.type.type", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@lsp.type.namespace", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@namespace.declaration", { link = "Normal" })
+
+vim.api.nvim_set_hl(0, "@function", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@function.builtin", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@function.method", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@function.method.call", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@function.call", { link = "Normal" })
+
+vim.api.nvim_set_hl(0, "@keyword.directive", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@keyword.storage", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@keyword.repeat", { link = "Normal" })
+
+vim.api.nvim_set_hl(0, "Function", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@tag", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@module", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@module.builtin", { link = "Normal" })

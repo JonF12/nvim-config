@@ -6,7 +6,7 @@
 local M = {}
 M.base46 = {
   theme = "doomchad",
-  transparency = false,
+  transparency = true,
 }
 M.ui = {
   cmp = {
@@ -20,7 +20,6 @@ M.ui = {
     },
   },
   telescope = { style = "bordered" },
-
   statusline = {
     theme = "minimal",
 
