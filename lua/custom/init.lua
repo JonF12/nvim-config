@@ -23,10 +23,15 @@ if vim.fn.has("win32") == 1 then
     command = "set guicursor=a:ver25",
   })
   vim.opt.fsync = false
+  -- Optimize terminal performance
+  vim.g.terminal_performance_mode = true
+  -- Increase these values for better UI responsiveness
+  vim.g.terminal_scrollback_buffer_size = 5000
+  -- Windows-specific UI performance tweaks
+  vim.opt.redrawtime = 1500
+  vim.opt.updatetime = 100
   vim.opt.fileformat = "dos" -- Windows line endings (CRLF)
   vim.opt.fileformats = "dos" -- Prefer Windows format
-  -- vim.g.terminal_scrollback_buffer_size = 10000 -- Reduce buffer size
-  -- vim.g.terminal_performance_mode = true
   vim.g.powershell_no_async = 0
   vim.g.powershell_no_progress = 1
 else
