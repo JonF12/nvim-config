@@ -48,23 +48,31 @@ require("nvim-treesitter.configs").setup({
     additional_vim_regex_highlighting = false,
   },
 })
+
+--highlight options
+vim.api.nvim_set_hl(0, "xmlTag", { link = "Keyword" })
+vim.api.nvim_set_hl(0, "xmlTagName", { link = "Keyword" })
+vim.api.nvim_set_hl(0, "Function", { link = "Normal" })
+vim.api.nvim_set_hl(0, "Boolean", { link = "Type" })
+vim.api.nvim_set_hl(0, "Number", { link = "Type" })
+vim.api.nvim_set_hl(0, "Float", { link = "Type" })
+
+vim.api.nvim_set_hl(0, "@number", { link = "Type" })
+vim.api.nvim_set_hl(0, "@number.float", { link = "Type" })
 vim.api.nvim_set_hl(0, "@attribute", { link = "Include" })
 vim.api.nvim_set_hl(0, "@attribute.builtin", { link = "Include" })
-vim.api.nvim_set_hl(0, "@lsp.type.type", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@lsp.type.namespace", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@namespace.declaration", { link = "Normal" })
-
+vim.api.nvim_set_hl(0, "@type.builtin", { link = "Keyword" })
 vim.api.nvim_set_hl(0, "@function", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@function.builtin", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@function.method", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@function.method.call", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@function.call", { link = "Normal" })
-
-vim.api.nvim_set_hl(0, "@keyword.directive", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@keyword.storage", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@keyword.repeat", { link = "Normal" })
-
-vim.api.nvim_set_hl(0, "Function", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@tag", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@punctuation.delimiter", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@variable.parameter", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@module", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@module.builtin", { link = "Normal" })
+
+--c sharp specific
+vim.api.nvim_set_hl(0, "@property.c_sharp", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@constructor.c_sharp", { link = "Normal" })
+-- vim.api.nvim_set_hl(0, "@function.method.call.c_sharp", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@function.method.c_sharp", { link = "Normal" })
