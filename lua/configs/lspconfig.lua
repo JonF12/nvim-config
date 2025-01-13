@@ -167,7 +167,7 @@ lspconfig.omnisharp.setup({
     UseTabs = false, -- Use spaces
     TabSize = 4,
     IndentationSize = 4,
-    MaxLineLength = 140,
+    MaxLineLength = 240,
   },
   organize_imports_on_format = true,
   enable_import_completion = true,
