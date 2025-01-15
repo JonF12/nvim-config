@@ -5,19 +5,20 @@ vim.diagnostic.config({
 })
 --if windows, powershell else bash
 if vim.fn.has("win32") == 1 then
-  vim.opt.shell = "pwsh"
-  vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
-  vim.opt.shellxquote = ""
 else
   vim.opt.shell = "bash"
 end
 vim.opt.pumheight = 20
+
 -- auto open nvim-tree when opening nvim
 vim.schedule(function()
   require("mappings")
 end)
 --use line endings dependant on os, windows settings
 if vim.fn.has("win32") == 1 then
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+  vim.opt.shellxquote = ""
   vim.api.nvim_create_autocmd("VimLeavePre", {
     pattern = "*",
     command = "set guicursor=a:ver25",
