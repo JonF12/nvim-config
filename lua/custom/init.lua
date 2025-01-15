@@ -1,22 +1,13 @@
-vim.diagnostic.config({
-  float = {
-    wrap = true,
-  },
-})
---if windows, powershell else bash
-if vim.fn.has("win32") == 1 then
-else
-  vim.opt.shell = "bash"
-end
 vim.opt.pumheight = 20
 
 -- auto open nvim-tree when opening nvim
 vim.schedule(function()
   require("mappings")
 end)
+
 --use line endings dependant on os, windows settings
 if vim.fn.has("win32") == 1 then
-  vim.opt.shell = "pwsh"
+  vim.opt.shell = "pwsh" --powershell if windows
   vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
   vim.opt.shellxquote = ""
   vim.api.nvim_create_autocmd("VimLeavePre", {
@@ -38,6 +29,7 @@ if vim.fn.has("win32") == 1 then
 else
   vim.opt.fileformat = "unix" -- Unix line endings (LF)
   vim.opt.fileformats = "unix" -- Prefer Unix format
+  vim.opt.shell = "bash" -- bash if linux
 end
 
 vim.g.nvim_tree_git_hl = 1

@@ -62,6 +62,17 @@ local plugins = {
       },
     },
   },
+  {
+    "d7omdev/nuget.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("nuget").setup()
+    end,
+  },
 }
 
 require("ufo").setup({
