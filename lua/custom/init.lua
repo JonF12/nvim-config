@@ -5,6 +5,9 @@ vim.schedule(function()
   require("mappings")
 end)
 
+--disable text wrap
+vim.opt.wrap = false
+
 --use line endings dependant on os, windows settings
 if vim.fn.has("win32") == 1 then
   vim.opt.shell = "pwsh" --powershell if windows
@@ -43,7 +46,6 @@ require("nvim-treesitter.configs").setup({
 })
 
 --highlight options
-
 vim.api.nvim_set_hl(0, "Function", { link = "Normal" })
 vim.api.nvim_set_hl(0, "Boolean", { link = "Type" })
 vim.api.nvim_set_hl(0, "Number", { link = "Type" })
