@@ -19,7 +19,7 @@ lspconfig.omnisharp.setup({
   enable_roslyn_analyzers = false,
   analyze_open_documents_only = true,
   formatting_options = {
-    UseTabs = false, -- Use spaces
+    UseTabs = false,
     TabSize = 4,
     IndentationSize = 4,
     MaxLineLength = 140,
