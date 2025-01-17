@@ -1,0 +1,36 @@
+IndentWidth: 2
+IndentCaseLabels: true
+BinPackArguments: false
+BinPackParameters: false
+ColumnLimit: 100
+UseTab: Never
+IncludeBlocks: Preserve
+SortIncludes: true
+AlignAfterOpenBracket: Align
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
+AlignOperands: true
+AllowShortEnumsOnASingleLine: false
+KeepEmptyLinesAtTheStartOfBlocks: true	
+AlwaysBreakAfterReturnType: None
+Cpp11BracedListStyle: false
+AlignArrayOfStructures: Left 
+BreakArrays: true
+BreakBeforeBraces: Custom
+BreakConstructorInitializers: BeforeComma
+BreakBeforeConceptDeclarations: true
+BreakInitializerLists: true
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterControlStatement: false
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterStruct: false
+  AfterUnion: false
+  BeforeCatch: false
+  BeforeElse: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
