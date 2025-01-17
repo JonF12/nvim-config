@@ -62,6 +62,8 @@ vim.api.nvim_set_hl(0, "@keyword.repeat", { link = "Keyword" })
 -- Macros e.g For C
 vim.api.nvim_set_hl(0, "@keyword.directive.define", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@keyword.directive", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@keyword.exception", { link = "Keyword" })
+
 -- don't higlight punctuation
 vim.api.nvim_set_hl(0, "@punctuation.delimiter", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "Normal" })
