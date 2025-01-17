@@ -1,6 +1,7 @@
 local lspconfig = require("lspconfig")
 local nvlsp = require("nvchad.configs.lspconfig")
 lspconfig.clangd.setup({
+  on_init = nvlsp.on_init,
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   cmd = {
@@ -10,6 +11,8 @@ lspconfig.clangd.setup({
     "--header-insertion=iwyu",
     "--completion-style=detailed",
     "--function-arg-placeholders",
+    "--all-scopes-completion",
+    "--completion-parse=auto",
   },
   filetypes = { "c", "cpp" },
   root_dir = lspconfig.util.root_pattern(".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git"),
