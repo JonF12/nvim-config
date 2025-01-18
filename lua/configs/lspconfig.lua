@@ -176,6 +176,26 @@ lspconfig.omnisharp.setup({
   filetypes = { "cs", "csproj", "sln" },
 })
 
+require("lspconfig").nil_ls.setup({
+  filetypes = { "nix" },
+  capabilities = nvlsp.capabilities,
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  settings = {
+    ["nil"] = {
+      enable = true,
+      trace = { server = "verbose" },
+      formatting = {
+        command = { "nixpkgs-fmt" },
+      },
+      diagnostics = {
+        ignored = {},
+        excludedFiles = {},
+      },
+    },
+  },
+})
+
 require("configs.languages.c")
 require("configs.languages.csharp")
 require("configs.languages.go")
