@@ -13,6 +13,7 @@ local options = {
     cs = { "csharpier" },
     c = { "clang_format" },
     python = { "ruff" },
+    nix = { "nixpkgs_fmt" },
   },
   format_on_save = {
     timeout_ms = 2000,

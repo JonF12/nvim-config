@@ -86,6 +86,7 @@ return {
         "omnisharp",
         "python-lsp-server",
         "denopls",
+        "nil",
         "delve",
         "templ",
         "prettier",

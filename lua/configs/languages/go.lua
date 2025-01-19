@@ -1,7 +1,13 @@
 local lspconfig = require("lspconfig")
--- local nvlsp = require("nvchad.configs.lspconfig")
+local nvlsp = require("nvchad.configs.lspconfig")
 
 lspconfig.gopls.setup({
+  on_init = nvlsp.on_init,
+  on_attach = function(client, bufnr)
+    nvlsp.on_attach(client, bufnr)
+    require("mappings.go_templ_mappings").go_format_on_save(client, bufnr)
+  end,
+  capabilities = nvlsp.capabilities,
   settings = {
     gopls = {
       staticcheck = true,
@@ -24,7 +30,4 @@ lspconfig.gopls.setup({
     },
   },
   filetypes = { "go", "templ" },
-  on_attach = function(client, bufnr)
-    require("mappings.go_templ_mappings").go_format_on_save(client, bufnr)
-  end,
 })
