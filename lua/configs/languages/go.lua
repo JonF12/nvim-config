@@ -2,6 +2,7 @@ local lspconfig = require("lspconfig")
 local nvlsp = require("nvchad.configs.lspconfig")
 
 lspconfig.gopls.setup({
+  cmd = { "gopls" },
   on_init = nvlsp.on_init,
   on_attach = function(client, bufnr)
     nvlsp.on_attach(client, bufnr)
