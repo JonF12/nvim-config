@@ -1,7 +1,23 @@
 local lspconfig = require("lspconfig")
 local nvlsp = require("nvchad.configs.lspconfig")
+
+-- I'm managing OmniSharp version with nix, but the nixpkg for some reason
+-- creates command named "OmniSharp" rather than lowercase "omnisharp"
+-- therefore prioritize the nix version, if not found, switch back to mason version
+local function get_omnisharp_cmd()
+  -- Check if OmniSharp exists in PATH using vim's executable function
+  if vim.fn.executable("OmniSharp") == 1 then
+    return "OmniSharp"
+  elseif vim.fn.executable("omnisharp") == 1 then
+    return "omnisharp"
+  else
+    vim.notify("Neither OmniSharp nor omnisharp found in PATH", vim.log.levels.WARN)
+    return "omnisharp"
+  end
+end
+
 lspconfig.omnisharp.setup({
-  cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()), "--settings", vim.fn.stdpath("config") .. "/omnisharp.json" },
+  cmd = { get_omnisharp_cmd(), "--languageserver", "--hostPID", tostring(vim.fn.getpid()), "--settings", vim.fn.stdpath("config") .. "/omnisharp.json" },
   on_attach = function(client, bufnr)
     nvlsp.on_attach(client, bufnr)
     if not bufnr or bufnr == 0 then
