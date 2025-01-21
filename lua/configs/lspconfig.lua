@@ -10,7 +10,6 @@ vim.filetype.add({ extension = { templ = "templ" } })
 local servers = {
   "html",
   "cssls",
-  "ts_ls",
   "jsonls",
   "yamlls",
   "templ",
