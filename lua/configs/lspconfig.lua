@@ -10,8 +10,6 @@ vim.filetype.add({ extension = { templ = "templ" } })
 local servers = {
   "html",
   "cssls",
-  "jsonls",
-  "yamlls",
   "templ",
 }
 
@@ -51,11 +49,11 @@ lspconfig.tailwindcss.setup({
 lspconfig.html.setup({
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-  filetypes = { "html" },
+  filetypes = { "html", "templ", "cshtml" },
 })
 lspconfig.emmet_ls.setup({
   capabilities = nvlsp.capabilities,
-  filetypes = { "html", "css" },
+  filetypes = { "html", "css", "templ" },
   init_options = {
     html = {
       options = {
@@ -109,6 +107,8 @@ lspconfig.denols.setup({
   on_attach = nvlsp.on_attach,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
+
+lspconfig.htmx.setup({})
 
 require("configs.languages.c")
 require("configs.languages.csharp")
