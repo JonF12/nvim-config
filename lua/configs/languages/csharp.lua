@@ -37,14 +37,21 @@ lspconfig.omnisharp.setup({
   enable_roslyn_analyzers = true,
   analyze_open_documents_only = true,
   formatting_options = {
-    UseTabs = false, -- Use spaces
+    UseTabs = false,
     TabSize = 4,
     IndentationSize = 4,
     MaxLineLength = 240,
   },
+  analyzeOpenDocumentsOnly = false,
+  roslynExtensionsOptions = {
+    enableDecompilationSupport = true,
+    enableAnalyzersSupport = true,
+    diagnosticMode = "FullSolution",
+    enableImportCompletion = true,
+    enableAsyncCompletion = true,
+  },
   organize_imports_on_format = true,
   enable_import_completion = true,
-  enable_cache = true,
   enable_package_auto_restore = true,
   filetypes = { "cs", "csproj", "sln" },
 })

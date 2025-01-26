@@ -52,6 +52,7 @@
     "NewLineForFinally": true,
     "NewLineForMembersInObjectInit": true,
     "NewLineForMembersInAnonymousTypes": true,
-    "NewLineForClausesInQuery": true
+    "NewLineForClausesInQuery": true,
+    "EnableRoslynAnalyzers": true
   }
 }

@@ -30,10 +30,9 @@ vim.api.nvim_set_hl(0, "@attribute", { link = "Include" })
 -- xml
 vim.api.nvim_set_hl(0, "xmlTag", { link = "Keyword" })
 vim.api.nvim_set_hl(0, "xmlTagName", { link = "Keyword" })
+
 --c sharp specific
 vim.api.nvim_set_hl(0, "@property.c_sharp", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@constructor.c_sharp", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@constant.builtin.c_sharp", { link = "Keyword" })
 vim.api.nvim_set_hl(0, "@variable.member.c_sharp", { link = "Normal" })
--- vim.api.nvim_set_hl(0, "@function.method.call.c_sharp", { link = "Normal" })
-vim.api.nvim_set_hl(0, "@function.method.c_sharp", { link = "Normal" })
