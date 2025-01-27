@@ -34,7 +34,7 @@ M.ui = {
   },
   colorify = {
     enabled = true,
-    mode = "fg", -- fg, bg, virtual
+    mode = "virtual", -- fg, bg, virtual
     virt_text = "󱓻 ",
     highlight = { hex = true, lspvars = true },
   },

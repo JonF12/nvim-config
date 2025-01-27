@@ -7,24 +7,6 @@ local config_dap = function()
   require("dap-cs").setup()
   require("dap-python").setup()
 
-  -- dap.adapters.python = {
-  --   type = "executable",
-  --   command = "python",
-  --   args = { "-m", "debugpy.adapter" },
-  -- }
-  --
-  -- dap.configurations.python = {
-  --   {
-  --     type = "python",
-  --     request = "launch",
-  --     name = "Launch file",
-  --     program = "${file}",
-  --     pythonPath = function()
-  --       return vim.fn.getcwd() .. "/.venv/bin/python"
-  --     end,
-  --   },
-  -- }
-
   vim.keymap.set("n", "<leader>bb", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
   vim.keymap.set("n", "<F5>", dap.continue, { desc = "Start/Continue" })
   vim.keymap.set("n", "<F8>", dap.step_over, { desc = "Step Over" })
@@ -45,10 +27,10 @@ local config_dap = function()
   vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
   vim.fn.sign_define("DapBreakpointRejected", { text = "⭕", texthl = "DapBreakpointRejected", linehl = "", numhl = "" })
 
-  -- dap.listeners.before.attach.dapui_config = function()
-  --   ui.open()
-  -- end
-  --
+  dap.listeners.before.attach.dapui_config = function()
+    ui.open()
+  end
+
   dap.listeners.before.launch.dapui_config = function()
     ui.open()
   end
