@@ -16,7 +16,7 @@ M.ui = {
     icons_left = true, -- only for non-atom styles!
     lspkind_text = false,
     icons = true,
-    style = "flat_light", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
     format_colors = {
       tailwind = false, -- will work for css lsp too
       icon = "󱓻",
@@ -35,7 +35,7 @@ M.ui = {
 
   colorify = {
     enabled = true,
-    mode = "virtual", -- fg, bg, virtual
+    mode = "fg", -- fg, bg, virtual
     virt_text = "󱓻 ",
     highlight = { hex = true, lspvars = true },
   },
