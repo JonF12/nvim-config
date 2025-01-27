@@ -7,7 +7,6 @@ vim.api.nvim_set_hl(0, "Float", { link = "Type" })
 vim.api.nvim_set_hl(0, "@number", { link = "Type" })
 vim.api.nvim_set_hl(0, "@number.float", { link = "Type" })
 vim.api.nvim_set_hl(0, "@_parent", { link = "Type" })
-vim.api.nvim_set_hl(0, "@attribute.builtin", { link = "Include" })
 
 vim.api.nvim_set_hl(0, "@type.builtin", { link = "Keyword" })
 -- for loops should be same as keyword
@@ -32,6 +31,8 @@ vim.api.nvim_set_hl(0, "xmlTag", { link = "Keyword" })
 vim.api.nvim_set_hl(0, "xmlTagName", { link = "Keyword" })
 
 --c sharp specific
+vim.api.nvim_set_hl(0, "@lsp.type.property.cs", { link = "Normal" })
+vim.api.nvim_set_hl(0, "@lsp.type.enumMember.cs", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@property.c_sharp", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@constructor.c_sharp", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@constant.builtin.c_sharp", { link = "Keyword" })

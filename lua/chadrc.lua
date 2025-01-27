@@ -32,7 +32,6 @@ M.ui = {
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
   },
-
   colorify = {
     enabled = true,
     mode = "fg", -- fg, bg, virtual

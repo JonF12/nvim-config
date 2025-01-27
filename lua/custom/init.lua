@@ -7,7 +7,11 @@ end)
 
 --disable text wrap
 vim.opt.wrap = false
-
+vim.diagnostic.config({
+  virtual_text = false,
+  underline = true,
+  signs = true,
+})
 --use line endings dependant on os, windows settings
 if vim.fn.has("win32") == 1 then
   vim.opt.shell = "pwsh" --powershell if windows
