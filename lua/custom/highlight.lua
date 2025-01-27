@@ -23,8 +23,6 @@ vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@variable.parameter", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@module", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@module.builtin", { link = "Normal" })
---attribute override so it looks different
-vim.api.nvim_set_hl(0, "@attribute", { link = "Include" })
 
 -- xml
 vim.api.nvim_set_hl(0, "xmlTag", { link = "Keyword" })
