@@ -31,7 +31,7 @@ if vim.fn.has("win32") == 1 then
   vim.opt.updatetime = 100
   vim.opt.fileformat = "dos" -- Windows line endings (CRLF)
   vim.opt.fileformats = "dos" -- Prefer Windows format
-  vim.g.powershell_no_async = 0
+  -- vim.g.powershell_no_async = 0
   vim.g.powershell_no_progress = 1
 else
   vim.opt.fileformat = "unix" -- Unix line endings (LF)
@@ -40,7 +40,7 @@ else
 end
 
 vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_git_timeout = 2000
+vim.g.nvim_tree_git_timeout = 3000
 
 require("nvim-treesitter.configs").setup({
   highlight = {
