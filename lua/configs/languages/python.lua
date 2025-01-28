@@ -13,7 +13,7 @@ lspconfig.pyright.setup({
       analysis = {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
-        typeCheckingMode = "basic",
+        typeCheckingMode = "strict",
         diagnosticMode = "workspace",
       },
     },

@@ -12,7 +12,7 @@ local options = {
     json = { "prettier" },
     cs = { "csharpier" },
     c = { "clang_format" },
-    python = { "ruff" },
+    python = { "ruff_format" },
     nix = { "nixpkgs_fmt" },
   },
   format_on_save = {
