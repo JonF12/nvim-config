@@ -78,24 +78,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "typescript-language-server",
-        "json-lsp",
-        "yaml-language-server",
-        "omnisharp",
-        "python-lsp-server",
-        "denopls",
-        "nil",
-        "delve",
-        "templ",
-        "prettier",
-        "csharpier",
-        "eslint_d",
-        "netcoredbg",
-      },
-    },
-  },
+  }
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -119,3 +102,4 @@ return {
     },
   },
 }
+
