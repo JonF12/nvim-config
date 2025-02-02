@@ -78,7 +78,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-  }
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
